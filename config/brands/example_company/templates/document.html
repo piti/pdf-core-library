@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or "Document" }}</title>
+    <style>{{ stylesheet_content }}</style>
+</head>
+<body>
+    <div class="header">
+        {% if brand.assets.logo %}
+        <img src="{{ brand.assets.logo }}" alt="{{ brand.name }}" class="logo">
+        {% endif %}
+        
+        <h1 class="title">{{ title or "Document" }}</h1>
+        
+        {% if author %}
+        <p class="subtitle">By {{ author }}</p>
+        {% endif %}
+        
+        {% if date %}
+        <p class="subtitle">{{ date }}</p>
+        {% endif %}
+    </div>
+
+    <div class="content">
+        {{ html_content }}
+    </div>
+
+    <div class="footer">
+        <p>{{ brand.name }}{% if brand.website %} • {{ brand.website }}{% endif %}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+brand:
+  name: "Example Company"
+  tagline: "Professional Excellence"
+  description: "A sample brand configuration for demonstration purposes"
+  website: "https://example.com"
+  
+colors:
+  primary: "#1E3A8A"      # Professional Blue
+  secondary: "#3B82F6"    # Lighter Blue
+  accent: "#F59E0B"       # Amber
+  text: "#1F2937"         # Dark Gray
+  background: "#FFFFFF"   # White
+  muted: "#6B7280"        # Gray
+
+typography:
+  primary_font: "Inter"
+  secondary_font: "Source Sans Pro"
+  heading_font: "Inter"
+  code_font: "JetBrains Mono"
+
+layout:
+  margin_top: "1in"
+  margin_bottom: "1in"
+  margin_left: "1in"
+  margin_right: "1in"
+  line_height: 1.6
+  paragraph_spacing: "1em"
+
+assets:
+  logo: "assets/images/logo.svg"
+  icon: "assets/images/icon.svg"
+  stylesheet: "assets/example_company_style.css"
+  
+metadata:
+  created_at: "2024-01-01T00:00:00Z"
+  updated_at: "2024-01-01T00:00:00Z"
+  version: "1.0.0"
+  is_protected: false
+  status: "active"

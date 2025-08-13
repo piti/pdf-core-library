@@ -1,0 +1,34 @@
+# Default PDF Pipeline Settings
+pipeline:
+  default_brand: "ai_savvy_parents"
+  output_format: "pdf"
+  temp_directory: "temp/"
+
+pdf:
+  format: "Letter"  # A4, Legal, etc.
+  margins:
+    top: "1in"
+    right: "1in"
+    bottom: "1in"
+    left: "1in"
+  quality:
+    dpi: 300
+    print_background: true
+    prefer_css_page_size: true
+
+markdown:
+  extensions:
+    - "tables"
+    - "fenced_code"
+    - "codehilite"
+    - "toc"
+    - "footnotes"
+  extension_configs:
+    codehilite:
+      css_class: "highlight"
+    toc:
+      permalink: true
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
