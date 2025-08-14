@@ -12,7 +12,7 @@ Main exports:
 - LocalStorage: Local filesystem storage
 """
 
-from .core import BrandManager, PDFGenerator, AsyncPDFGenerator, TemplateEngine
+from .core import BrandManager, PDFGenerator, AsyncPDFGenerator, TemplateEngine, ProcessedInput, RenderedTemplate, PDFOutput
 from .services import StorageInterface, LocalStorage
 
 __version__ = "1.0.0"
@@ -22,6 +22,9 @@ __all__ = [
     "PDFGenerator", 
     "AsyncPDFGenerator",
     "TemplateEngine",
+    "ProcessedInput",
+    "RenderedTemplate",
+    "PDFOutput",
     "StorageInterface",
     "LocalStorage"
 ]

@@ -12,24 +12,11 @@ from dataclasses import dataclass
 
 from jinja2 import Environment, FileSystemLoader, Template, TemplateNotFound
 
-from .input_processor import ProcessedInput
+from .content_types import ProcessedInput, RenderedTemplate
 from .brand_manager import BrandConfig
 
 logger = logging.getLogger(__name__)
 
-
-@dataclass
-class RenderedTemplate:
-    """Represents a fully rendered template ready for PDF generation."""
-    
-    html_content: str
-    css_embedded: bool = True
-    metadata: Dict[str, Any] = None
-    template_name: str = ""
-    
-    def __post_init__(self):
-        if self.metadata is None:
-            self.metadata = {}
 
 
 class TemplateEngine:

@@ -12,10 +12,14 @@ from .brand_manager import BrandManager
 from .pdf_generator import PDFGenerator
 from .async_pdf_generator import AsyncPDFGenerator
 from .template_engine import TemplateEngine
+from .content_types import ProcessedInput, RenderedTemplate, PDFOutput
 
 __all__ = [
     "BrandManager",
     "PDFGenerator", 
     "AsyncPDFGenerator",
-    "TemplateEngine"
+    "TemplateEngine",
+    "ProcessedInput",
+    "RenderedTemplate", 
+    "PDFOutput"
 ]
