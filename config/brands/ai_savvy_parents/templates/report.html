@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default('AI-Savvy Parents Report') }}</title>
+    <style>
+        {{ brand_css | safe }}
+        
+        /* Report-specific styling */
+        .executive-summary {
+            background-color: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 16pt;
+            margin: 20pt 0;
+            border-radius: 4pt;
+        }
+        
+        .key-findings {
+            background-color: #ECFDF5;
+            border-left: 4px solid #10B981;
+            padding: 16pt;
+            margin: 20pt 0;
+            border-radius: 4pt;
+        }
+        
+        .recommendations {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 16pt;
+            margin: 20pt 0;
+            border-radius: 4pt;
+        }
+        
+        .data-table {
+            margin: 20pt 0;
+        }
+        
+        .metric {
+            display: inline-block;
+            text-align: center;
+            margin: 12pt;
+            padding: 12pt;
+            background-color: #F3F4F6;
+            border-radius: 4pt;
+            min-width: 120pt;
+        }
+        
+        .metric-value {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #1E3A8A;
+            display: block;
+        }
+        
+        .metric-label {
+            font-size: 10pt;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+    </style>
+</head>
+<body data-document-title="{{ title | default('Report') }}">
+    <!-- Cover page if requested -->
+    {% if cover_page %}
+    <div class="cover-page">
+        <div class="brand-header">
+            <h1>{{ brand.name }}</h1>
+            <div class="tagline">{{ brand.tagline }}</div>
+        </div>
+        
+        <h1>{{ title | default('Community Report') }}</h1>
+        
+        {% if subtitle %}
+        <div class="subtitle">{{ subtitle }}</div>
+        {% endif %}
+        
+        {% if report_period %}
+        <div class="author">Report Period: {{ report_period }}</div>
+        {% endif %}
+        
+        {% if date %}
+        <div class="date">{{ date }}</div>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <!-- Executive Summary -->
+    {% if executive_summary %}
+    <div class="executive-summary">
+        <h2 style="margin-top: 0; color: #3B82F6;">Executive Summary</h2>
+        {{ executive_summary }}
+    </div>
+    {% endif %}
+    
+    <!-- Key Metrics -->
+    {% if metrics %}
+    <h2>Key Metrics</h2>
+    <div style="text-align: center; margin: 20pt 0;">
+        {% for metric in metrics %}
+        <div class="metric">
+            <span class="metric-value">{{ metric.value }}</span>
+            <span class="metric-label">{{ metric.label }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Main content -->
+    <div class="content">
+        {{ content | safe }}
+    </div>
+    
+    <!-- Key Findings -->
+    {% if key_findings %}
+    <div class="key-findings">
+        <h2 style="margin-top: 0; color: #10B981;">Key Findings</h2>
+        {{ key_findings }}
+    </div>
+    {% endif %}
+    
+    <!-- Recommendations -->
+    {% if recommendations %}
+    <div class="recommendations">
+        <h2 style="margin-top: 0; color: #F59E0B;">Recommendations</h2>
+        {{ recommendations }}
+    </div>
+    {% endif %}
+    
+    <!-- Report footer -->
+    <div class="footer">
+        <p><strong>AI-Savvy Parents Community Report</strong></p>
+        <p>For questions about this report, contact us at <a href="mailto:reports@ai-savvyparents.com">reports@ai-savvyparents.com</a></p>
+        <p>Join our community: <a href="{{ brand.community }}">{{ brand.community }}</a></p>
+    </div>
+</body>
+</html>

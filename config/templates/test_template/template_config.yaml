@@ -1,0 +1,12 @@
+name: test_template
+description: Test template
+category: document
+template_info:
+  name: test_template
+  description: Test template description
+  category: custom
+  version: 1.0.0
+  created_at: '2025-08-13T21:25:56.548229'
+  features: []
+  required_assets: []
+  optional_assets: []

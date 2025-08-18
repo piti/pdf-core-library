@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default('AI-Savvy Parents Cover Page') }}</title>
+    <style>
+        {{ brand_css | safe }}
+    </style>
+</head>
+<body>
+    <div class="cover-page">
+        <!-- Network pattern background -->
+        <div class="network-pattern" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.1; z-index: -1;"></div>
+        
+        <!-- Logo watermark -->
+        {% if show_logo_watermark %}
+        <img src="{{ brand.logo | default('assets/images/logo.png') }}" class="logo-watermark" alt="{{ brand.name }} Logo">
+        {% endif %}
+        
+        <!-- Brand header with logo and gradient -->
+        <div class="brand-header">
+            {% if show_logo %}
+            <div class="logo-header {{ logo_position | default('logo-center') }}">
+                <img src="{{ brand.logo | default('assets/images/logo.png') }}" class="logo" alt="{{ brand.name }} Logo">
+            </div>
+            {% endif %}
+            <h1>{{ brand.name }}</h1>
+            <div class="tagline">{{ brand.tagline }}</div>
+        </div>
+        
+        <!-- Document title -->
+        {% if title %}
+        <h1 style="font-size: 36pt; margin: 48pt 0 24pt 0;">{{ title }}</h1>
+        {% endif %}
+        
+        <!-- Subtitle -->
+        {% if subtitle %}
+        <div class="subtitle">{{ subtitle }}</div>
+        {% endif %}
+        
+        <!-- Author information -->
+        {% if author %}
+        <div class="author">
+            <strong>{{ author }}</strong>
+        </div>
+        {% endif %}
+        
+        <!-- Date -->
+        {% if date %}
+        <div class="date">{{ date }}</div>
+        {% endif %}
+        
+        <!-- Emergency contact info for crisis documents -->
+        {% if document_type == 'emergency' %}
+        <div style="margin-top: 48pt; padding: 24pt; background-color: #FEE2E2; border-radius: 8pt; border-left: 4px solid #EF4444;">
+            <h3 style="color: #EF4444; margin-top: 0;">Emergency Support</h3>
+            <p><strong>Community:</strong> <a href="{{ brand.community }}">{{ brand.community }}</a></p>
+            <p><strong>Website:</strong> <a href="{{ brand.website }}">{{ brand.website }}</a></p>
+            <p><strong>Email:</strong> support@ai-savvyparents.com</p>
+        </div>
+        {% endif %}
+        
+        <!-- Community information -->
+        <div style="margin-top: 48pt; text-align: center; color: #6B7280;">
+            <p>Part of the AI-Savvy Parents Community</p>
+            <p>Transforming AI anxiety into AI confidence for families everywhere</p>
+        </div>
+    </div>
+</body>
+</html>

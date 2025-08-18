@@ -12,13 +12,14 @@ Main exports:
 - LocalStorage: Local filesystem storage
 """
 
-from .core import BrandManager, PDFGenerator, AsyncPDFGenerator, TemplateEngine, ProcessedInput, RenderedTemplate, PDFOutput
+from .core import BrandManager, InputProcessor, PDFGenerator, AsyncPDFGenerator, TemplateEngine, ProcessedInput, RenderedTemplate, PDFOutput
 from .services import StorageInterface, LocalStorage
 
 __version__ = "1.0.0"
 
 __all__ = [
     "BrandManager",
+    "InputProcessor",
     "PDFGenerator", 
     "AsyncPDFGenerator",
     "TemplateEngine",

@@ -1,0 +1,65 @@
+{
+  "test_logo.svg": {
+    "asset_type": "logo",
+    "file_size": 404,
+    "checksum": "1f4e8e3c94790ddda2f1fc59e29a9effbe30c35762da812811f9b41c802ecda5",
+    "uploaded_at": "2025-08-12T13:08:11.509252",
+    "metadata": {}
+  },
+  "test_large_image.png": {
+    "asset_type": "image",
+    "file_size": 55576,
+    "checksum": "01291dc5736f6c06ab19f8c903f4da7b5607c1cc500c19c9053457b36a82886c",
+    "uploaded_at": "2025-08-12T13:37:05.294210",
+    "metadata": {}
+  },
+  "test_logo_1.svg": {
+    "asset_type": "logo",
+    "file_size": 404,
+    "checksum": "1f4e8e3c94790ddda2f1fc59e29a9effbe30c35762da812811f9b41c802ecda5",
+    "uploaded_at": "2025-08-12T13:39:09.597184",
+    "metadata": {}
+  },
+  "image1.png": {
+    "asset_type": "image",
+    "file_size": 55576,
+    "checksum": "01291dc5736f6c06ab19f8c903f4da7b5607c1cc500c19c9053457b36a82886c",
+    "uploaded_at": "2025-08-12T13:39:34.175063",
+    "metadata": {}
+  },
+  "image1_1.png": {
+    "asset_type": "image",
+    "file_size": 55576,
+    "checksum": "01291dc5736f6c06ab19f8c903f4da7b5607c1cc500c19c9053457b36a82886c",
+    "uploaded_at": "2025-08-12T13:39:34.176536",
+    "metadata": {}
+  },
+  "icon.svg": {
+    "asset_type": "icon",
+    "file_size": 301,
+    "checksum": "344d2d506d46525898ac0ae38754021daca1cbdb4179074deceb13d76028b600",
+    "uploaded_at": "2025-08-12T13:39:34.177127",
+    "metadata": {}
+  },
+  "logo1.svg": {
+    "asset_type": "logo",
+    "file_size": 404,
+    "checksum": "1f4e8e3c94790ddda2f1fc59e29a9effbe30c35762da812811f9b41c802ecda5",
+    "uploaded_at": "2025-08-12T13:39:34.177573",
+    "metadata": {}
+  },
+  "icon_1.svg": {
+    "asset_type": "icon",
+    "file_size": 301,
+    "checksum": "344d2d506d46525898ac0ae38754021daca1cbdb4179074deceb13d76028b600",
+    "uploaded_at": "2025-08-12T13:39:34.178120",
+    "metadata": {}
+  },
+  "logo1_1.svg": {
+    "asset_type": "logo",
+    "file_size": 404,
+    "checksum": "1f4e8e3c94790ddda2f1fc59e29a9effbe30c35762da812811f9b41c802ecda5",
+    "uploaded_at": "2025-08-12T13:39:34.178795",
+    "metadata": {}
+  }
+}

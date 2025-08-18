@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default('AI-Savvy Parents Brochure') }}</title>
+    <style>
+        {{ brand_css | safe }}
+        
+        /* Brochure-specific styling */
+        body {
+            font-size: 11pt;
+            line-height: 1.4;
+        }
+        
+        .brochure-cover {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 40pt 30pt;
+            text-align: center;
+            page-break-after: always;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 8pt;
+        }
+        
+        .brochure-cover h1 {
+            font-size: 32pt;
+            margin: 20pt 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .brochure-cover .tagline {
+            font-size: 16pt;
+            margin: 16pt 0;
+            opacity: 0.9;
+        }
+        
+        .brochure-cover .logo {
+            height: 80pt;
+            margin-bottom: 20pt;
+            filter: brightness(0) invert(1);
+        }
+        
+        .panel {
+            background-color: #FAFBFC;
+            border: 1px solid #E5E7EB;
+            padding: 20pt;
+            margin: 16pt 0;
+            border-radius: 8pt;
+            page-break-inside: avoid;
+        }
+        
+        .panel h2 {
+            color: var(--color-primary);
+            font-size: 18pt;
+            margin: 0 0 12pt 0;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 4pt;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16pt;
+            margin: 20pt 0;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border: 1px solid var(--color-secondary);
+            padding: 16pt;
+            border-radius: 6pt;
+            text-align: center;
+        }
+        
+        .feature-card h3 {
+            color: var(--color-primary);
+            font-size: 14pt;
+            margin: 0 0 8pt 0;
+        }
+        
+        .feature-card .icon {
+            font-size: 24pt;
+            color: var(--color-accent);
+            margin-bottom: 8pt;
+        }
+        
+        .benefits-list {
+            background-color: #ECFDF5;
+            border-left: 4px solid var(--color-secondary);
+            padding: 16pt;
+            margin: 16pt 0;
+        }
+        
+        .benefits-list ul {
+            margin: 8pt 0;
+            padding-left: 20pt;
+        }
+        
+        .benefits-list li {
+            margin: 6pt 0;
+            color: var(--color-text);
+        }
+        
+        .cta-section {
+            background: linear-gradient(45deg, var(--color-accent) 0%, var(--color-primary) 100%);
+            color: white;
+            padding: 24pt;
+            text-align: center;
+            margin: 30pt 0;
+            border-radius: 8pt;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin: 0 0 16pt 0;
+            border: none;
+        }
+        
+        .contact-info {
+            background-color: var(--color-background-dark);
+            padding: 20pt;
+            border-radius: 6pt;
+            margin: 20pt 0;
+        }
+        
+        .contact-info h3 {
+            color: var(--color-primary);
+            margin: 0 0 12pt 0;
+        }
+        
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12pt;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 12pt;
+        }
+        
+        .contact-item strong {
+            color: var(--color-primary);
+            margin-right: 8pt;
+        }
+        
+        @media print {
+            .panel, .feature-card, .benefits-list {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% if show_cover %}
+    <!-- Brochure Cover -->
+    <div class="brochure-cover">
+        {% if brand.logo %}
+        <img src="{{ brand.logo }}" class="logo" alt="{{ brand.name }} Logo">
+        {% endif %}
+        <h1>{{ title | default(brand.name) }}</h1>
+        {% if brand.tagline %}
+        <div class="tagline">{{ brand.tagline }}</div>
+        {% endif %}
+        {% if subtitle %}
+        <div class="tagline">{{ subtitle }}</div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <div class="content">
+        {{ content | safe }}
+    </div>
+
+    <!-- Call to Action -->
+    {% if show_cta %}
+    <div class="cta-section">
+        <h2>{{ cta_title | default('Get Started Today!') }}</h2>
+        <p>{{ cta_text | default('Contact us to learn more about our services and how we can help you.') }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+        <h3>Contact Information</h3>
+        <div class="contact-details">
+            {% if brand.email %}
+            <div class="contact-item">
+                <strong>Email:</strong> {{ brand.email }}
+            </div>
+            {% endif %}
+            {% if brand.phone %}
+            <div class="contact-item">
+                <strong>Phone:</strong> {{ brand.phone }}
+            </div>
+            {% endif %}
+            {% if brand.website %}
+            <div class="contact-item">
+                <strong>Website:</strong> {{ brand.website }}
+            </div>
+            {% endif %}
+            {% if brand.address %}
+            <div class="contact-item">
+                <strong>Address:</strong> {{ brand.address }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

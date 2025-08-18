@@ -132,16 +132,20 @@ class PDFGenerator:
         try:
             if self.browser:
                 self.browser.close()
-                self.browser = None
                 logger.debug("Browser stopped")
-                
-            if self.playwright:
-                self.playwright.stop()
-                self.playwright = None
-                logger.debug("Playwright stopped")
-                
         except Exception as e:
             logger.warning(f"Error stopping browser: {e}")
+        finally:
+            self.browser = None
+                
+        try:
+            if self.playwright:
+                self.playwright.stop()
+                logger.debug("Playwright stopped")
+        except Exception as e:
+            logger.warning(f"Error stopping playwright: {e}")
+        finally:
+            self.playwright = None
             
     def generate_pdf(
         self,

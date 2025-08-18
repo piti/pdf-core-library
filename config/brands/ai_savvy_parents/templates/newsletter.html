@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default('AI-Savvy Parents Newsletter') }}</title>
+    <style>
+        {{ brand_css | safe }}
+        
+        /* Newsletter-specific styling */
+        .newsletter-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 20pt;
+            text-align: center;
+            margin-bottom: 20pt;
+            border-radius: 8pt;
+        }
+        
+        .newsletter-header h1 {
+            margin: 0;
+            font-size: 24pt;
+            font-weight: bold;
+        }
+        
+        .newsletter-header .issue-info {
+            margin-top: 8pt;
+            font-size: 12pt;
+            opacity: 0.9;
+        }
+        
+        .newsletter-section {
+            background-color: #F8FAFC;
+            border-left: 4px solid var(--color-accent);
+            padding: 16pt;
+            margin: 16pt 0;
+            border-radius: 4pt;
+        }
+        
+        .newsletter-section h2 {
+            color: var(--color-primary);
+            font-size: 16pt;
+            margin: 0 0 12pt 0;
+            border-bottom: 1px solid var(--color-primary);
+            padding-bottom: 4pt;
+        }
+        
+        .feature-story {
+            background-color: #EFF6FF;
+            border: 2px solid var(--color-primary);
+            padding: 20pt;
+            margin: 20pt 0;
+            border-radius: 8pt;
+        }
+        
+        .feature-story h2 {
+            color: var(--color-primary);
+            font-size: 18pt;
+            margin: 0 0 12pt 0;
+        }
+        
+        .quick-tips {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16pt;
+            margin: 20pt 0;
+        }
+        
+        .tip-box {
+            background-color: #ECFDF5;
+            border: 1px solid var(--color-secondary);
+            padding: 12pt;
+            border-radius: 6pt;
+        }
+        
+        .tip-box h3 {
+            color: var(--color-secondary);
+            font-size: 14pt;
+            margin: 0 0 8pt 0;
+        }
+        
+        .newsletter-footer {
+            background-color: var(--color-background-dark);
+            padding: 16pt;
+            text-align: center;
+            margin-top: 30pt;
+            border-radius: 4pt;
+            font-size: 10pt;
+            color: var(--color-text-light);
+        }
+        
+        .social-links {
+            margin: 12pt 0;
+        }
+        
+        .social-links a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 8pt;
+        }
+        
+        @media print {
+            .newsletter-section {
+                break-inside: avoid;
+            }
+            
+            .feature-story {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Newsletter Header -->
+    <div class="newsletter-header">
+        {% if brand.logo %}
+        <img src="{{ brand.logo }}" style="height: 40pt; margin-bottom: 8pt;" alt="{{ brand.name }} Logo">
+        {% endif %}
+        <h1>{{ title | default(brand.name + ' Newsletter') }}</h1>
+        <div class="issue-info">
+            {% if issue_number %}Issue #{{ issue_number }} • {% endif %}
+            {{ date | default('Current Issue') }}
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        {{ content | safe }}
+    </div>
+
+    <!-- Newsletter Footer -->
+    <div class="newsletter-footer">
+        <p><strong>{{ brand.name }}</strong></p>
+        {% if brand.tagline %}
+        <p>{{ brand.tagline }}</p>
+        {% endif %}
+        
+        <div class="social-links">
+            {% if brand.website %}
+            <a href="{{ brand.website }}">Website</a>
+            {% endif %}
+            {% if brand.email %}
+            <a href="mailto:{{ brand.email }}">Email</a>
+            {% endif %}
+            {% if brand.social %}
+            {% for platform, url in brand.social.items() %}
+            <a href="{{ url }}">{{ platform | title }}</a>
+            {% endfor %}
+            {% endif %}
+        </div>
+        
+        <p style="margin-top: 12pt; font-size: 9pt; opacity: 0.8;">
+            This newsletter was generated on {{ date | default('Today') }}
+        </p>
+    </div>
+</body>
+</html>

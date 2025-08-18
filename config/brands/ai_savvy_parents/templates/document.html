@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default('AI-Savvy Parents Document') }}</title>
+    <style>
+        {{ brand_css | safe }}
+    </style>
+</head>
+<body data-document-title="{{ title | default('Document') }}">
+    {% if cover_page %}
+    <div class="cover-page">
+        <!-- Logo watermark -->
+        {% if show_logo_watermark %}
+        <img src="{{ brand.logo | default('assets/images/logo.png') }}" class="logo-watermark" alt="{{ brand.name }} Logo">
+        {% endif %}
+        
+        <div class="brand-header">
+            {% if show_logo %}
+            <div class="logo-header {{ logo_position | default('logo-center') }}">
+                <img src="{{ brand.logo | default('assets/images/logo.png') }}" class="logo" alt="{{ brand.name }} Logo">
+            </div>
+            {% endif %}
+            <h1>{{ brand.name }}</h1>
+            <div class="tagline">{{ brand.tagline }}</div>
+        </div>
+        
+        {% if title %}
+        <h1>{{ title }}</h1>
+        {% endif %}
+        
+        {% if subtitle %}
+        <div class="subtitle">{{ subtitle }}</div>
+        {% endif %}
+        
+        {% if author %}
+        <div class="author">{{ author }}</div>
+        {% endif %}
+        
+        {% if date %}
+        <div class="date">{{ date }}</div>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    {% if show_toc %}
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <div class="toc-list">
+            {% for item in toc_items %}
+            <div class="toc-item {{ item.level | default('toc-level-1') }}">
+                <a href="#{{ item.anchor }}">{{ item.title }}</a>
+                <div class="toc-dots"></div>
+                <span class="toc-page">{{ item.page | default('--') }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="content">
+        {{ content | safe }}
+    </div>
+    
+    {% if show_footer %}
+    <div class="footer">
+        <p>For more information, visit <a href="{{ brand.website }}">{{ brand.website }}</a></p>
+        <p>Join our community at <a href="{{ brand.community }}">{{ brand.community }}</a></p>
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -253,9 +253,10 @@ class TemplateEngine:
                 "website": brand_config.website,
                 "community": brand_config.community,
                 "colors": brand_config.colors,
-                "typography": brand_config.typography
+                "typography": brand_config.typography,
+                "assets": brand_config.assets
             },
-            "assets": brand_config.assets
+            "assets": brand_config.assets  # Also available at top level for backward compatibility
         })
         
         # Add CSS variables and styling

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default("Contract Agreement") }}</title>
+    <style>
+        {{ css_variables }}
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-secondary), var(--font-fallback);
+            font-size: var(--font-size-body);
+            line-height: var(--line-height);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            margin: var(--page-margins);
+        }
+        
+        .contract-header {
+            text-align: center;
+            padding-bottom: var(--section-spacing);
+            border-bottom: 2px solid var(--color-primary);
+            margin-bottom: var(--section-spacing);
+        }
+        
+        .contract-header img {
+            height: 60px;
+            margin-bottom: var(--paragraph-spacing);
+        }
+        
+        .contract-title {
+            font-size: var(--font-size-h1);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--paragraph-spacing);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .contract-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--section-spacing);
+            margin-bottom: var(--section-spacing);
+            background-color: var(--color-background-light);
+            padding: var(--paragraph-spacing);
+            border-radius: 8px;
+        }
+        
+        .party-info h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--paragraph-spacing);
+            font-size: var(--font-size-h4);
+            border-bottom: 1px solid var(--color-secondary);
+            padding-bottom: 4px;
+        }
+        
+        .contract-details {
+            font-size: var(--font-size-small);
+            color: var(--color-text-light);
+            text-align: center;
+            margin-bottom: var(--section-spacing);
+        }
+        
+        .section {
+            margin-bottom: var(--section-spacing);
+        }
+        
+        .section-number {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-h3);
+            margin-bottom: var(--paragraph-spacing);
+        }
+        
+        .section-title {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-h3);
+            margin-bottom: var(--paragraph-spacing);
+            text-transform: uppercase;
+        }
+        
+        .section-content {
+            text-align: justify;
+            margin-bottom: var(--paragraph-spacing);
+        }
+        
+        .section-content p {
+            margin-bottom: var(--paragraph-spacing);
+        }
+        
+        .subsection {
+            margin-left: var(--paragraph-spacing);
+            margin-bottom: var(--paragraph-spacing);
+        }
+        
+        .subsection-title {
+            font-weight: var(--font-weight-medium);
+            color: var(--color-secondary);
+            margin-bottom: 4px;
+        }
+        
+        .terms-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .terms-list li {
+            margin-bottom: var(--paragraph-spacing);
+            padding-left: var(--paragraph-spacing);
+            position: relative;
+        }
+        
+        .terms-list li::before {
+            content: "●";
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .important-clause {
+            background-color: var(--color-warning-light);
+            border-left: 4px solid var(--color-warning);
+            padding: var(--paragraph-spacing);
+            margin: var(--paragraph-spacing) 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .important-clause .clause-title {
+            font-weight: var(--font-weight-bold);
+            color: var(--color-warning);
+            margin-bottom: 4px;
+        }
+        
+        .signature-section {
+            margin-top: calc(var(--section-spacing) * 2);
+            page-break-inside: avoid;
+        }
+        
+        .signature-title {
+            text-align: center;
+            font-size: var(--font-size-h2);
+            color: var(--color-primary);
+            margin-bottom: var(--section-spacing);
+            text-transform: uppercase;
+            border-top: 2px solid var(--color-primary);
+            padding-top: var(--section-spacing);
+        }
+        
+        .signature-blocks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: calc(var(--section-spacing) * 2);
+            margin-top: var(--section-spacing);
+        }
+        
+        .signature-block {
+            text-align: center;
+        }
+        
+        .signature-line {
+            border-bottom: 2px solid var(--color-text);
+            height: 60px;
+            margin-bottom: var(--paragraph-spacing);
+            position: relative;
+        }
+        
+        .signature-label {
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 4px;
+        }
+        
+        .signature-details {
+            font-size: var(--font-size-small);
+            color: var(--color-text-light);
+        }
+        
+        .witness-section {
+            margin-top: var(--section-spacing);
+            padding-top: var(--section-spacing);
+            border-top: 1px solid var(--color-secondary);
+        }
+        
+        .witness-title {
+            text-align: center;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-secondary);
+            margin-bottom: var(--paragraph-spacing);
+        }
+        
+        .witness-blocks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--section-spacing);
+        }
+        
+        .legal-footer {
+            margin-top: calc(var(--section-spacing) * 2);
+            padding-top: var(--paragraph-spacing);
+            border-top: 1px solid var(--color-secondary);
+            font-size: var(--font-size-small);
+            color: var(--color-text-light);
+            text-align: center;
+        }
+        
+        .page-number {
+            text-align: center;
+            font-size: var(--font-size-small);
+            color: var(--color-text-light);
+            margin-top: var(--section-spacing);
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .signature-section {
+                page-break-before: auto;
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contract-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .signature-blocks {
+                grid-template-columns: 1fr;
+                gap: var(--section-spacing);
+            }
+            
+            .witness-blocks {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contract-header">
+        <img src="{{ assets.logo }}" alt="{{ brand.name }}">
+        <h1 class="contract-title">{{ title | default("Service Agreement") }}</h1>
+    </div>
+    
+    <div class="contract-details">
+        <strong>Contract Date:</strong> {{ contract_date | default("Date") }} |
+        <strong>Contract Number:</strong> {{ contract_number | default("CONTRACT-001") }}
+        {% if effective_date %} | <strong>Effective Date:</strong> {{ effective_date }}{% endif %}
+    </div>
+    
+    <div class="contract-meta">
+        <div class="party-info">
+            <h3>Service Provider</h3>
+            <div><strong>{{ brand.name }}</strong></div>
+            {% if provider_address %}{{ provider_address | safe }}{% endif %}
+            {% if brand.website %}<div>{{ brand.website }}</div>{% endif %}
+            {% if provider_contact %}<div>{{ provider_contact }}</div>{% endif %}
+        </div>
+        
+        <div class="party-info">
+            <h3>Client</h3>
+            {% if client_info %}
+                {{ client_info | safe }}
+            {% else %}
+                <div><strong>Client Name</strong></div>
+                <div>Client Address</div>
+                <div>City, State ZIP</div>
+                <div>Contact Information</div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="section-content">
+        <p>This Agreement is entered into between {{ brand.name }} ("Service Provider") and {{ client_name | default("Client") }} ("Client") for the provision of services as outlined below.</p>
+    </div>
+    
+    <div class="content">
+        {{ content | safe }}
+    </div>
+    
+    <!-- Default contract sections if no content provided -->
+    {% if not content %}
+    <div class="section">
+        <div class="section-number">1.</div>
+        <div class="section-title">Scope of Services</div>
+        <div class="section-content">
+            <p>The Service Provider agrees to provide the following services:</p>
+            <ul class="terms-list">
+                <li>Service description 1</li>
+                <li>Service description 2</li>
+                <li>Service description 3</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-number">2.</div>
+        <div class="section-title">Terms and Conditions</div>
+        <div class="section-content">
+            <p>The following terms and conditions apply to this agreement:</p>
+            
+            <div class="subsection">
+                <div class="subsection-title">2.1 Duration</div>
+                <p>This agreement shall commence on {{ effective_date | default("start date") }} and remain in effect until {{ end_date | default("end date") }} unless terminated earlier in accordance with the terms herein.</p>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">2.2 Payment Terms</div>
+                <p>Payment shall be due within {{ payment_terms | default("30 days") }} of invoice date. Late payments may incur additional charges as specified in the payment terms.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-number">3.</div>
+        <div class="section-title">Responsibilities</div>
+        <div class="section-content">
+            <div class="subsection">
+                <div class="subsection-title">3.1 Service Provider Responsibilities</div>
+                <p>The Service Provider shall perform all services in a professional manner and in accordance with industry standards.</p>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">3.2 Client Responsibilities</div>
+                <p>The Client shall provide all necessary information and cooperation required for the successful completion of services.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="important-clause">
+        <div class="clause-title">Important Notice</div>
+        <p>This contract contains important legal obligations. Please review all terms carefully before signing. If you have questions, consult with legal counsel.</p>
+    </div>
+    
+    <div class="section">
+        <div class="section-number">4.</div>
+        <div class="section-title">Termination</div>
+        <div class="section-content">
+            <p>Either party may terminate this agreement with {{ termination_notice | default("30 days") }} written notice. Upon termination, all outstanding invoices become immediately due.</p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if template_options.contract.signature_blocks %}
+    <div class="signature-section">
+        <div class="signature-title">Agreement Signatures</div>
+        
+        <div class="signature-blocks">
+            <div class="signature-block">
+                <div class="signature-line"></div>
+                <div class="signature-label">{{ brand.name }}</div>
+                <div class="signature-details">
+                    Service Provider<br>
+                    Date: _______________
+                </div>
+            </div>
+            
+            <div class="signature-block">
+                <div class="signature-line"></div>
+                <div class="signature-label">{{ client_name | default("Client Name") }}</div>
+                <div class="signature-details">
+                    Client<br>
+                    Date: _______________
+                </div>
+            </div>
+        </div>
+        
+        {% if template_options.contract.witness_section %}
+        <div class="witness-section">
+            <div class="witness-title">Witness Signatures</div>
+            <div class="witness-blocks">
+                <div class="signature-block">
+                    <div class="signature-line"></div>
+                    <div class="signature-label">Witness 1</div>
+                    <div class="signature-details">Date: _______________</div>
+                </div>
+                
+                <div class="signature-block">
+                    <div class="signature-line"></div>
+                    <div class="signature-label">Witness 2</div>
+                    <div class="signature-details">Date: _______________</div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    {% if template_options.contract.legal_footer %}
+    <div class="legal-footer">
+        <p>This agreement constitutes the entire agreement between the parties and supersedes all prior negotiations, representations, or agreements relating to the subject matter herein.</p>
+        <p>{{ brand.name }} | Professional Services Agreement</p>
+    </div>
+    {% endif %}
+    
+    <div class="page-number">
+        Page {{ page_number | default("1") }} of {{ total_pages | default("1") }}
+    </div>
+</body>
+</html>

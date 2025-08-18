@@ -28,6 +28,10 @@ class ProcessedInput:
     
     def __post_init__(self):
         """Post-initialization processing."""
+        # Ensure metadata is not None
+        if self.metadata is None:
+            self.metadata = {}
+            
         if not self.date and self.metadata.get("auto_date", True):
             self.date = datetime.now().strftime("%Y-%m-%d")
             

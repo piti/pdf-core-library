@@ -141,7 +141,7 @@ class BrandManager:
     - Template system for brand inheritance
     """
     
-    def __init__(self, brands_root: Optional[Path] = None, templates_root: Optional[Path] = None):
+    def __init__(self, brands_root: Optional[Path] = None, templates_root: Optional[Path] = None, storage=None):
         """
         Initialize the BrandManager.
         
@@ -150,9 +150,12 @@ class BrandManager:
                         Defaults to config/brands/
             templates_root: Root directory containing brand templates.
                            Defaults to config/templates/
+            storage: Optional storage interface for advanced use cases.
+                    For future extensibility.
         """
         self.brands_root = brands_root or Path("config/brands")
         self.templates_root = templates_root or Path("config/templates")
+        self.storage = storage  # Store for future extensibility
         
         # Create directories if they don't exist
         self.brands_root.mkdir(parents=True, exist_ok=True)

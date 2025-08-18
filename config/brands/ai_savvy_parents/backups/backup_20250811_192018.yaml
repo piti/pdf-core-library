@@ -1,0 +1,111 @@
+brand:
+  name: AI-Savvy Parents
+  tagline: Guiding Your Family Through the AI Revolution
+  website: www.ai-savvyparents.com
+  community: https://www.skool.com/ai-ready-kids-1988
+colors:
+  primary: '#FF0000'
+  secondary: '#2D7D8A'
+  accent: '#F59E0B'
+  text: '#374151'
+  text_light: '#6B7280'
+  background: '#F3F4F6'
+  background_light: '#FFFFFF'
+  success: '#10B981'
+  success_light: '#D1FAE5'
+  warning: '#F59E0B'
+  warning_light: '#FEF3C7'
+  error: '#EF4444'
+  error_light: '#FEE2E2'
+typography:
+  primary_font: Inter
+  secondary_font: Source Sans Pro
+  fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif
+  sizes:
+    h1: 24pt
+    h2: 18pt
+    h3: 14pt
+    h4: 12pt
+    body: 11pt
+    small: 9pt
+    caption: 8pt
+  weights:
+    light: 300
+    regular: 400
+    medium: 500
+    bold: 700
+layout:
+  page_margins: 1in
+  line_height: 1.4
+  paragraph_spacing: 8pt
+  section_spacing: 20pt
+  header_spacing: 12pt
+assets:
+  logo: assets/images/logo.png
+  logo_dark: assets/images/logo-dark.png
+  watermark: assets/images/watermark.png
+  css: assets/ai_savvy_parents_style.css
+  fonts:
+  - assets/fonts/Inter-Light.woff2
+  - assets/fonts/Inter-Regular.woff2
+  - assets/fonts/Inter-Medium.woff2
+  - assets/fonts/Inter-Bold.woff2
+  - assets/fonts/SourceSansPro-Regular.woff2
+  - assets/fonts/SourceSansPro-SemiBold.woff2
+templates:
+  default: document.html
+  cover_page: cover.html
+  letter: letter.html
+  report: report.html
+  checklist: checklist.html
+template_options:
+  document:
+    show_footer: true
+    cover_page: false
+  cover:
+    network_background: true
+    emergency_contact: false
+  letter:
+    letterhead: true
+    formal_closing: true
+    show_footer: false
+  report:
+    executive_summary: true
+    metrics_section: true
+    recommendations: true
+    cover_page: true
+  checklist:
+    cover_page: true
+    show_overview: true
+    show_progress_bar: true
+    checklist_summary: true
+    show_completion_summary: true
+    show_footer: false
+pdf_settings:
+  format: Letter
+  margins:
+    top: 1in
+    right: 1in
+    bottom: 1in
+    left: 1in
+  header_footer: true
+  print_background: true
+compliance:
+  required_colors:
+  - primary
+  - secondary
+  - accent
+  required_fonts:
+  - Inter
+  - Source Sans Pro
+  max_color_variations: 2
+  header_font_required: Inter
+  body_font_required: Source Sans Pro
+is_protected: true
+protection_level: strict
+protected_by: system
+protected_at: '2025-08-12T00:00:00'
+protection_reason: Critical brand - protected from testing modifications
+metadata:
+  updated_at: '2025-08-11T19:20:18.023668'
+  version: 1.1.0

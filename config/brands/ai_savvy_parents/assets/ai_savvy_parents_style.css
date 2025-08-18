@@ -1,0 +1,1174 @@
+/* AI-Savvy Parents PDF Styling */
+
+/* Page Layout */
+@page {
+    margin: 1in;
+    @top-center {
+        content: "AI-Savvy Parents - " attr(data-document-title);
+        font-size: 10pt;
+        color: #1E3A8A;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    @bottom-center {
+        content: "© 2025 AI-Savvy Parents Community | Page " counter(page);
+        font-size: 9pt;
+        color: #6B7280;
+        font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+}
+
+/* Body Styling */
+body {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11pt;
+    line-height: 1.4;
+    color: #374151;
+    max-width: none;
+}
+
+/* Headers */
+h1 {
+    color: #1E3A8A;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 24pt;
+    font-weight: bold;
+    margin-top: 24pt;
+    margin-bottom: 12pt;
+    border-bottom: 3px solid #F59E0B;
+    padding-bottom: 6pt;
+    page-break-after: avoid;
+}
+
+h2 {
+    color: #1E3A8A;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 18pt;
+    font-weight: bold;
+    margin-top: 20pt;
+    margin-bottom: 10pt;
+    page-break-after: avoid;
+}
+
+h3 {
+    color: #2D7D8A;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+}
+
+h4 {
+    color: #2D7D8A;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+    page-break-after: avoid;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 8pt;
+    text-align: left;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 12pt;
+    padding-left: 20pt;
+}
+
+li {
+    margin-bottom: 4pt;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    margin-right: 6pt;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #2D7D8A;
+    padding-left: 12pt;
+    margin-left: 0;
+    margin-bottom: 12pt;
+    font-style: italic;
+    color: #4B5563;
+    background-color: #F8FAFC;
+    padding: 12pt;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+/* Code blocks */
+pre {
+    background-color: #F3F4F6;
+    border: 1px solid #D1D5DB;
+    padding: 12pt;
+    font-size: 9pt;
+    overflow-x: auto;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+code {
+    background-color: #F3F4F6;
+    padding: 2pt 4pt;
+    font-size: 9pt;
+    border-radius: 2pt;
+    font-family: "Monaco", "Consolas", "Courier New", monospace;
+}
+
+/* Enhanced Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16pt;
+    page-break-inside: avoid;
+    font-size: 10pt;
+}
+
+th, td {
+    border: 1px solid #D1D5DB;
+    padding: 10pt;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #1E3A8A;
+    color: white;
+    font-weight: bold;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11pt;
+}
+
+tr:nth-child(even) {
+    background-color: #F9FAFB;
+}
+
+/* Table Variants */
+.table-bordered {
+    border: 2px solid #1E3A8A;
+}
+
+.table-bordered th {
+    border-bottom: 2px solid #F59E0B;
+}
+
+.table-striped tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+.table-striped tr:nth-child(even) {
+    background-color: #F8FAFC;
+}
+
+.table-minimal {
+    border: none;
+}
+
+.table-minimal th, .table-minimal td {
+    border: none;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.table-minimal th {
+    background-color: transparent;
+    color: #1E3A8A;
+    border-bottom: 2px solid #1E3A8A;
+}
+
+.table-compact th, .table-compact td {
+    padding: 6pt;
+}
+
+.table-spacious th, .table-spacious td {
+    padding: 14pt;
+}
+
+/* Data Table for Reports */
+.data-table {
+    margin: 20pt 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 6pt;
+    overflow: hidden;
+}
+
+.data-table caption {
+    font-weight: bold;
+    color: #1E3A8A;
+    margin-bottom: 8pt;
+    text-align: left;
+    font-size: 12pt;
+}
+
+.data-table th {
+    background: linear-gradient(135deg, #1E3A8A 0%, #2D7D8A 100%);
+    text-transform: uppercase;
+    font-size: 9pt;
+    letter-spacing: 0.5pt;
+}
+
+.data-table .number {
+    text-align: right;
+    font-family: "Monaco", "Consolas", "Courier New", monospace;
+}
+
+.data-table .currency::before {
+    content: "$";
+}
+
+.data-table .percentage::after {
+    content: "%";
+}
+
+.data-table .highlight {
+    background-color: #FEF3C7;
+    font-weight: bold;
+}
+
+.data-table .positive {
+    color: #059669;
+}
+
+.data-table .negative {
+    color: #DC2626;
+}
+
+/* Responsive Table Layouts */
+.table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.table-two-column td:first-child {
+    width: 30%;
+    font-weight: 500;
+    color: #1E3A8A;
+}
+
+.table-three-column td:first-child {
+    width: 25%;
+}
+
+.table-three-column td:nth-child(2) {
+    width: 35%;
+}
+
+.table-three-column td:last-child {
+    width: 40%;
+}
+
+/* Special Elements */
+.highlight {
+    background-color: #FEF3C7;
+    padding: 2pt 4pt;
+    border-radius: 2pt;
+}
+
+.warning {
+    background-color: #FEE2E2;
+    border-left: 4px solid #EF4444;
+    padding: 12pt;
+    margin-bottom: 12pt;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+.warning::before {
+    content: "⚠️ ";
+    font-weight: bold;
+}
+
+.success {
+    background-color: #ECFDF5;
+    border-left: 4px solid #10B981;
+    padding: 12pt;
+    margin-bottom: 12pt;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+.success::before {
+    content: "✅ ";
+    font-weight: bold;
+}
+
+.info {
+    background-color: #EFF6FF;
+    border-left: 4px solid #3B82F6;
+    padding: 12pt;
+    margin-bottom: 12pt;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+.info::before {
+    content: "ℹ️ ";
+    font-weight: bold;
+}
+
+/* Emoji and Icons */
+.emoji {
+    font-size: 14pt;
+    margin-right: 4pt;
+}
+
+/* Hide header anchor links (¶ symbols) in PDFs */
+.headerlink {
+    display: none;
+}
+
+/* Page Breaks */
+.page-break {
+    page-break-before: always;
+}
+
+.page-break-avoid {
+    page-break-inside: avoid;
+}
+
+/* Footer styling */
+.footer {
+    margin-top: 24pt;
+    padding-top: 12pt;
+    border-top: 2px solid #E5E7EB;
+    font-size: 9pt;
+    color: #6B7280;
+    text-align: center;
+}
+
+/* Cover Page */
+.cover-page {
+    text-align: center;
+    margin-top: 72pt;
+    page-break-after: always;
+}
+
+.cover-page h1 {
+    font-size: 36pt;
+    color: #1E3A8A;
+    margin-bottom: 12pt;
+    border: none;
+}
+
+.cover-page .subtitle {
+    font-size: 18pt;
+    color: #2D7D8A;
+    margin-bottom: 24pt;
+    font-style: italic;
+}
+
+.cover-page .tagline {
+    font-size: 14pt;
+    color: #F59E0B;
+    margin-bottom: 48pt;
+    font-weight: 500;
+}
+
+.cover-page .author {
+    font-size: 14pt;
+    color: #6B7280;
+    margin-bottom: 48pt;
+}
+
+.cover-page .date {
+    font-size: 12pt;
+    color: #6B7280;
+}
+
+/* Logo Integration */
+.logo {
+    max-width: 120pt;
+    max-height: 120pt;
+    margin-bottom: 24pt;
+}
+
+.logo-small {
+    max-width: 60pt;
+    max-height: 60pt;
+    margin-right: 12pt;
+    vertical-align: middle;
+}
+
+.logo-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24pt;
+}
+
+.logo-left {
+    text-align: left;
+}
+
+.logo-right {
+    text-align: right;
+}
+
+.logo-watermark {
+    position: fixed;
+    bottom: 24pt;
+    right: 24pt;
+    opacity: 0.1;
+    max-width: 100pt;
+    max-height: 100pt;
+    z-index: -1;
+}
+
+/* Brand Elements */
+.brand-header {
+    background: linear-gradient(135deg, #1E3A8A 0%, #2D7D8A 100%);
+    color: white;
+    padding: 24pt;
+    text-align: center;
+    margin-bottom: 24pt;
+    border-radius: 8pt;
+}
+
+.brand-header h1 {
+    color: white;
+    border: none;
+    margin: 0;
+    font-size: 28pt;
+}
+
+.brand-header .tagline {
+    font-size: 14pt;
+    margin-top: 8pt;
+    opacity: 0.9;
+}
+
+/* Network Pattern Background */
+.network-pattern {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23F59E0B" opacity="0.3"/><circle cx="80" cy="30" r="2" fill="%232D7D8A" opacity="0.3"/><circle cx="50" cy="70" r="2" fill="%23F59E0B" opacity="0.3"/><line x1="20" y1="20" x2="80" y2="30" stroke="%232D7D8A" stroke-width="0.5" opacity="0.2"/><line x1="80" y1="30" x2="50" y2="70" stroke="%232D7D8A" stroke-width="0.5" opacity="0.2"/></svg>');
+    background-size: 100px 100px;
+    background-repeat: repeat;
+}
+
+/* Responsive adjustments for different page sizes */
+@media print {
+    body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+    
+    blockquote, .warning, .success, .info {
+        page-break-inside: avoid;
+    }
+}
+
+/* Table of Contents */
+.toc {
+    background-color: #F8FAFC;
+    border: 1px solid #E5E7EB;
+    border-radius: 8pt;
+    padding: 20pt;
+    margin: 24pt 0;
+    page-break-inside: avoid;
+}
+
+.toc h2 {
+    color: #1E3A8A;
+    margin-top: 0;
+    margin-bottom: 16pt;
+    font-size: 18pt;
+    border-bottom: 2px solid #F59E0B;
+    padding-bottom: 8pt;
+}
+
+.toc-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.toc-item {
+    margin-bottom: 8pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.toc-item a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+}
+
+.toc-item a:hover {
+    color: #1E3A8A;
+}
+
+.toc-item .toc-dots {
+    flex: 1;
+    margin: 0 8pt;
+    border-bottom: 1px dotted #D1D5DB;
+    height: 1pt;
+}
+
+.toc-item .toc-page {
+    color: #6B7280;
+    font-size: 10pt;
+}
+
+.toc-level-2 {
+    margin-left: 16pt;
+    font-size: 10pt;
+}
+
+.toc-level-3 {
+    margin-left: 32pt;
+    font-size: 9pt;
+    color: #6B7280;
+}
+
+/* Advanced Colored Boxes */
+.citation-box {
+    background-color: #F0F9FF;
+    border-left: 4px solid #0EA5E9;
+    padding: 16pt;
+    margin: 16pt 0;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+    font-style: italic;
+    position: relative;
+}
+
+.citation-box::before {
+    content: "📖";
+    font-style: normal;
+    font-weight: bold;
+    margin-right: 8pt;
+}
+
+.tip-box {
+    background-color: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    padding: 16pt;
+    margin: 16pt 0;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+.tip-box::before {
+    content: "💡";
+    font-weight: bold;
+    margin-right: 8pt;
+}
+
+.note-box {
+    background-color: #F3F4F6;
+    border-left: 4px solid #6B7280;
+    padding: 16pt;
+    margin: 16pt 0;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+.note-box::before {
+    content: "📝";
+    font-weight: bold;
+    margin-right: 8pt;
+}
+
+.emergency-box {
+    background-color: #FEF2F2;
+    border: 2px solid #EF4444;
+    padding: 20pt;
+    margin: 20pt 0;
+    border-radius: 8pt;
+    page-break-inside: avoid;
+    text-align: center;
+}
+
+.emergency-box::before {
+    content: "🚨";
+    font-size: 18pt;
+    display: block;
+    margin-bottom: 8pt;
+}
+
+.emergency-box h3 {
+    color: #EF4444;
+    margin-top: 0;
+    font-size: 16pt;
+}
+
+.action-box {
+    background-color: #F0FDF4;
+    border-left: 4px solid #22C55E;
+    padding: 16pt;
+    margin: 16pt 0;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+.action-box::before {
+    content: "✅";
+    font-weight: bold;
+    margin-right: 8pt;
+}
+
+/* Multi-Column Layouts */
+.two-column {
+    display: flex;
+    gap: 24pt;
+    align-items: flex-start;
+}
+
+.two-column > div {
+    flex: 1;
+    min-width: 0; /* Prevents overflow */
+}
+
+.three-column {
+    display: flex;
+    gap: 20pt;
+    align-items: flex-start;
+}
+
+.three-column > div {
+    flex: 1;
+    min-width: 0; /* Prevents overflow */
+}
+
+.column-break-before {
+    /* This class is now just a marker for flex items */
+}
+
+.column-break-after {
+    break-after: column;
+}
+
+.column-break-avoid {
+    break-inside: avoid;
+}
+
+/* Add visual column separators */
+.two-column > div:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -12pt;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #E5E7EB;
+}
+
+.three-column > div:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -10pt;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #E5E7EB;
+}
+
+.two-column > div,
+.three-column > div {
+    position: relative;
+}
+
+/* Professional PDF Elements */
+.pull-quote {
+    font-size: 14pt;
+    color: #1E3A8A;
+    text-align: center;
+    margin: 24pt 0;
+    padding: 16pt;
+    border-top: 2px solid #F59E0B;
+    border-bottom: 2px solid #F59E0B;
+    font-style: italic;
+    font-weight: 500;
+    page-break-inside: avoid;
+}
+
+.sidebar {
+    background-color: #F8FAFC;
+    border: 1px solid #E5E7EB;
+    border-radius: 6pt;
+    padding: 16pt;
+    margin: 16pt 0;
+    float: right;
+    width: 200pt;
+    margin-left: 16pt;
+    font-size: 10pt;
+}
+
+.sidebar h4 {
+    margin-top: 0;
+    color: #1E3A8A;
+    font-size: 12pt;
+}
+
+.chapter-divider {
+    text-align: center;
+    margin: 48pt 0;
+    page-break-before: always;
+}
+
+.chapter-divider::after {
+    content: "";
+    display: block;
+    width: 100pt;
+    height: 2pt;
+    background: linear-gradient(to right, #1E3A8A, #F59E0B, #2D7D8A);
+    margin: 12pt auto;
+}
+
+/* Links */
+a {
+    color: #2D7D8A;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Print-specific link handling */
+@media print {
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #6B7280;
+    }
+    
+    a[href^="#"]:after {
+        content: "";
+    }
+}
+
+/* ========================================
+   CHECKLIST TEMPLATE STYLES
+   ======================================== */
+
+/* Checklist Summary on Cover Page */
+.checklist-summary {
+    background: linear-gradient(135deg, #F8FAFC 0%, #E5E7EB 100%);
+    border: 2px solid #2D7D8A;
+    border-radius: 12pt;
+    padding: 20pt;
+    margin: 24pt 0;
+    text-align: center;
+}
+
+.summary-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 16pt;
+    gap: 12pt;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-number {
+    display: block;
+    font-size: 32pt;
+    font-weight: bold;
+    color: #1E3A8A;
+    font-family: "Inter", sans-serif;
+    line-height: 1;
+    margin-bottom: 4pt;
+}
+
+.stat-label {
+    font-size: 10pt;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8pt;
+    background-color: #E5E7EB;
+    border-radius: 4pt;
+    overflow: hidden;
+    margin-top: 12pt;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2D7D8A 0%, #F59E0B 100%);
+    border-radius: 4pt;
+    transition: width 0.3s ease;
+}
+
+/* Checklist Overview Cards */
+.checklist-overview {
+    margin: 24pt 0;
+    page-break-inside: avoid;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16pt;
+    margin-top: 16pt;
+}
+
+.overview-card {
+    border-radius: 8pt;
+    padding: 16pt;
+    text-align: center;
+    border: 2px solid;
+}
+
+.overview-card h3 {
+    margin: 0 0 8pt 0;
+    font-size: 14pt;
+}
+
+.priority-count {
+    font-size: 20pt;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+}
+
+.high-priority {
+    background-color: #FEF2F2;
+    border-color: #DC2626;
+    color: #DC2626;
+}
+
+.medium-priority {
+    background-color: #FFFBEB;
+    border-color: #F59E0B;
+    color: #F59E0B;
+}
+
+.low-priority {
+    background-color: #F0FDF4;
+    border-color: #16A34A;
+    color: #16A34A;
+}
+
+/* Enhanced Checkbox Styling */
+.checklist-content input[type="checkbox"] {
+    width: 14pt;
+    height: 14pt;
+    margin-right: 8pt;
+    margin-top: 2pt;
+    accent-color: #2D7D8A;
+    transform: scale(1.2);
+}
+
+/* Task List Styling */
+.task-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.task-list li {
+    position: relative;
+    padding: 8pt 0 8pt 24pt;
+    border-bottom: 1px solid #F3F4F6;
+    margin-bottom: 4pt;
+}
+
+.task-list li:last-child {
+    border-bottom: none;
+}
+
+.task-list input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 10pt;
+}
+
+/* Priority Indicators */
+.priority-high {
+    border-left: 4px solid #DC2626;
+    background-color: #FEF2F2;
+    padding-left: 12pt;
+}
+
+.priority-medium {
+    border-left: 4px solid #F59E0B;
+    background-color: #FFFBEB;
+    padding-left: 12pt;
+}
+
+.priority-low {
+    border-left: 4px solid #16A34A;
+    background-color: #F0FDF4;
+    padding-left: 12pt;
+}
+
+/* Task Categories */
+.task-category {
+    background-color: #F8FAFC;
+    border: 1px solid #E5E7EB;
+    border-radius: 8pt;
+    padding: 16pt;
+    margin: 16pt 0;
+    page-break-inside: avoid;
+}
+
+.task-category h3 {
+    color: #1E3A8A;
+    margin-top: 0;
+    margin-bottom: 12pt;
+    padding-bottom: 8pt;
+    border-bottom: 2px solid #F59E0B;
+}
+
+/* Completion Summary */
+.completion-summary {
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+    border: 2px solid #16A34A;
+    border-radius: 12pt;
+    padding: 20pt;
+    margin: 24pt 0;
+    page-break-inside: avoid;
+}
+
+.completion-summary h2 {
+    color: #16A34A;
+    margin-top: 0;
+}
+
+.next-actions {
+    margin-top: 16pt;
+}
+
+.next-action-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.next-action-item {
+    padding: 8pt 12pt;
+    margin: 8pt 0;
+    border-radius: 6pt;
+    border-left: 4px solid;
+}
+
+.next-action-item.priority-high {
+    background-color: #FEF2F2;
+    border-left-color: #DC2626;
+}
+
+.next-action-item.priority-medium {
+    background-color: #FFFBEB;
+    border-left-color: #F59E0B;
+}
+
+.next-action-item.priority-low {
+    background-color: #F0FDF4;
+    border-left-color: #16A34A;
+}
+
+/* TOC Tasks Count */
+.toc-tasks {
+    font-size: 9pt;
+    color: #6B7280;
+    font-style: italic;
+}
+
+/* ========================================
+   IMAGE INTEGRATION STYLES
+   ======================================== */
+
+/* Basic Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 12pt auto;
+    border-radius: 4pt;
+    page-break-inside: avoid;
+}
+
+/* Figure with Caption */
+.figure {
+    margin: 16pt 0;
+    text-align: center;
+    page-break-inside: avoid;
+}
+
+.figure img {
+    margin-bottom: 8pt;
+}
+
+.figure-caption {
+    font-size: 10pt;
+    color: #6B7280;
+    font-style: italic;
+    text-align: center;
+    margin-top: 8pt;
+}
+
+.figure-number {
+    font-weight: bold;
+    color: #1E3A8A;
+}
+
+/* Image Text Layout - Side by Side */
+.image-text-layout {
+    display: flex;
+    gap: 20pt;
+    align-items: flex-start;
+    margin: 16pt 0;
+    page-break-inside: avoid;
+}
+
+.image-text-layout .text-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.image-text-layout .image-content {
+    flex: 0 0 250pt;
+    text-align: center;
+}
+
+.image-text-layout .image-content img {
+    margin: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Reverse Layout - Image Left, Text Right */
+.image-text-layout.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Text Wrapped Around Images */
+.image-left {
+    float: left;
+    margin: 0 16pt 12pt 0;
+    max-width: 200pt;
+}
+
+.image-right {
+    float: right;
+    margin: 0 0 12pt 16pt;
+    max-width: 200pt;
+}
+
+/* Full Width Images */
+.image-full-width {
+    width: 100%;
+    margin: 20pt 0;
+    border: 1px solid #E5E7EB;
+    border-radius: 8pt;
+    padding: 4pt;
+    background-color: #F8FAFC;
+}
+
+.image-full-width img {
+    width: 100%;
+    border-radius: 4pt;
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150pt, 1fr));
+    gap: 12pt;
+    margin: 16pt 0;
+}
+
+.image-gallery .gallery-item {
+    text-align: center;
+}
+
+.image-gallery img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 4pt;
+    border: 1px solid #E5E7EB;
+}
+
+.image-gallery .gallery-caption {
+    font-size: 9pt;
+    color: #6B7280;
+    margin-top: 4pt;
+}
+
+/* Two Column Image Gallery */
+.image-gallery-two {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Three Column Image Gallery */
+.image-gallery-three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Image with Border and Shadow */
+.image-styled {
+    border: 2px solid #E5E7EB;
+    border-radius: 8pt;
+    box-shadow: 0 4pt 6pt rgba(0, 0, 0, 0.1);
+    padding: 8pt;
+    background-color: white;
+}
+
+/* Diagram Styling */
+.diagram {
+    background-color: #F8FAFC;
+    border: 1px solid #E5E7EB;
+    border-radius: 8pt;
+    padding: 16pt;
+    margin: 20pt 0;
+    text-align: center;
+}
+
+.diagram-title {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #1E3A8A;
+    margin-bottom: 12pt;
+}
+
+/* Image Source Attribution */
+.image-source {
+    font-size: 8pt;
+    color: #9CA3AF;
+    text-align: center;
+    margin-top: 4pt;
+    font-style: italic;
+}
+
+/* Responsive Image Adjustments */
+@media print {
+    .image-text-layout {
+        flex-direction: column;
+    }
+    
+    .image-text-layout .image-content {
+        flex: none;
+    }
+    
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .image-gallery-three {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D7D8A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main brand text -->
+  <text x="20" y="50" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="bold" fill="#1E3A8A">
+    AI-Savvy Parents
+  </text>
+  
+  <!-- Tagline -->
+  <text x="20" y="75" font-family="Source Sans Pro, Arial, sans-serif" font-size="14" fill="#2D7D8A">
+    Guiding Your Family Through the AI Revolution
+  </text>
+  
+  <!-- Network visualization -->
+  <g transform="translate(20, 100)">
+    <!-- Central AI node -->
+    <circle cx="60" cy="40" r="20" fill="#F59E0B" stroke="#1E3A8A" stroke-width="2"/>
+    <text x="60" y="48" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E3A8A">AI</text>
+    
+    <!-- Connected nodes -->
+    <circle cx="20" cy="20" r="8" fill="#2D7D8A" opacity="0.8"/>
+    <circle cx="100" cy="20" r="8" fill="#2D7D8A" opacity="0.8"/>
+    <circle cx="20" cy="60" r="8" fill="#2D7D8A" opacity="0.8"/>
+    <circle cx="100" cy="60" r="8" fill="#2D7D8A" opacity="0.8"/>
+    <circle cx="140" cy="40" r="8" fill="#2D7D8A" opacity="0.8"/>
+    
+    <!-- Connection lines -->
+    <line x1="28" y1="24" x2="52" y2="36" stroke="#2D7D8A" stroke-width="2" opacity="0.6"/>
+    <line x1="92" y1="24" x2="68" y2="36" stroke="#2D7D8A" stroke-width="2" opacity="0.6"/>
+    <line x1="28" y1="56" x2="52" y2="44" stroke="#2D7D8A" stroke-width="2" opacity="0.6"/>
+    <line x1="92" y1="56" x2="68" y2="44" stroke="#2D7D8A" stroke-width="2" opacity="0.6"/>
+    <line x1="80" y1="40" x2="132" y2="40" stroke="#2D7D8A" stroke-width="2" opacity="0.6"/>
+  </g>
+  
+  <!-- Family silhouettes -->
+  <g transform="translate(220, 100)">
+    <!-- Parent 1 -->
+    <g fill="#1E3A8A">
+      <circle cx="20" cy="15" r="8"/>
+      <rect x="15" y="23" width="10" height="25" rx="2"/>
+      <rect x="12" y="30" width="4" height="15" rx="1"/>
+      <rect x="24" y="30" width="4" height="15" rx="1"/>
+      <rect x="17" y="48" width="3" height="12" rx="1"/>
+      <rect x="20" y="48" width="3" height="12" rx="1"/>
+    </g>
+    
+    <!-- Child 1 -->
+    <g fill="#2D7D8A" transform="translate(35, 5)">
+      <circle cx="10" cy="12" r="6"/>
+      <rect x="7" y="18" width="6" height="18" rx="1"/>
+      <rect x="5" y="22" width="3" height="10" rx="1"/>
+      <rect x="12" y="22" width="3" height="10" rx="1"/>
+      <rect x="8" y="36" width="2" height="8" rx="1"/>
+      <rect x="10" y="36" width="2" height="8" rx="1"/>
+    </g>
+    
+    <!-- Child 2 -->
+    <g fill="#2D7D8A" transform="translate(55, 8)">
+      <circle cx="8" cy="10" r="5"/>
+      <rect x="6" y="15" width="4" height="15" rx="1"/>
+      <rect x="4" y="18" width="2" height="8" rx="1"/>
+      <rect x="10" y="18" width="2" height="8" rx="1"/>
+      <rect x="6.5" y="30" width="1.5" height="6" rx="1"/>
+      <rect x="8" y="30" width="1.5" height="6" rx="1"/>
+    </g>
+    
+    <!-- Parent 2 -->
+    <g fill="#1E3A8A" transform="translate(75, 0)">
+      <circle cx="20" cy="15" r="8"/>
+      <rect x="15" y="23" width="10" height="25" rx="2"/>
+      <rect x="12" y="30" width="4" height="15" rx="1"/>
+      <rect x="24" y="30" width="4" height="15" rx="1"/>
+      <rect x="17" y="48" width="3" height="12" rx="1"/>
+      <rect x="20" y="48" width="3" height="12" rx="1"/>
+    </g>
+    
+    <!-- Connection lines between family members -->
+    <line x1="28" y1="40" x2="40" y2="35" stroke="#F59E0B" stroke-width="2" opacity="0.7"/>
+    <line x1="50" y1="38" x2="60" y2="38" stroke="#F59E0B" stroke-width="2" opacity="0.7"/>
+    <line x1="68" y1="38" x2="87" y2="40" stroke="#F59E0B" stroke-width="2" opacity="0.7"/>
+  </g>
+  
+  <!-- Decorative network dots -->
+  <circle cx="350" cy="30" r="3" fill="#F59E0B" opacity="0.6"/>
+  <circle cx="370" cy="50" r="2" fill="#2D7D8A" opacity="0.6"/>
+  <circle cx="360" cy="70" r="2" fill="#F59E0B" opacity="0.4"/>
+  <circle cx="380" cy="90" r="1" fill="#2D7D8A" opacity="0.4"/>
+  
+  <!-- Connection lines for decorative dots -->
+  <line x1="350" y1="30" x2="370" y2="50" stroke="#2D7D8A" stroke-width="1" opacity="0.3"/>
+  <line x1="370" y1="50" x2="360" y2="70" stroke="#2D7D8A" stroke-width="1" opacity="0.3"/>
+</svg>

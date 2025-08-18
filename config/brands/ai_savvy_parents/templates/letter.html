@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default('AI-Savvy Parents Letter') }}</title>
+    <style>
+        {{ brand_css | safe }}
+        
+        /* Letter-specific styling */
+        .letterhead {
+            border-bottom: 2px solid #1E3A8A;
+            padding-bottom: 20pt;
+            margin-bottom: 30pt;
+        }
+        
+        .letterhead h1 {
+            margin: 0;
+            font-size: 24pt;
+            color: #1E3A8A;
+            border: none;
+        }
+        
+        .letterhead .tagline {
+            color: #2D7D8A;
+            font-style: italic;
+            margin-top: 6pt;
+        }
+        
+        .letterhead .contact-info {
+            color: #6B7280;
+            font-size: 10pt;
+            margin-top: 12pt;
+        }
+        
+        .date-line {
+            text-align: right;
+            margin-bottom: 24pt;
+            color: #374151;
+        }
+        
+        .recipient {
+            margin-bottom: 24pt;
+        }
+        
+        .salutation {
+            margin-bottom: 16pt;
+        }
+        
+        .letter-body {
+            line-height: 1.6;
+        }
+        
+        .letter-body p {
+            margin-bottom: 12pt;
+        }
+        
+        .closing {
+            margin-top: 24pt;
+            margin-bottom: 48pt;
+        }
+        
+        .signature-block {
+            margin-top: 36pt;
+        }
+        
+        .signature-line {
+            border-bottom: 1px solid #D1D5DB;
+            width: 200pt;
+            margin-bottom: 6pt;
+        }
+        
+        .signature-name {
+            font-weight: bold;
+        }
+        
+        .signature-title {
+            color: #6B7280;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+    <!-- Letterhead -->
+    <div class="letterhead">
+        <h1>{{ brand.name }}</h1>
+        <div class="tagline">{{ brand.tagline }}</div>
+        <div class="contact-info">
+            {{ brand.website }} | {{ brand.community }} | support@ai-savvyparents.com
+        </div>
+    </div>
+    
+    <!-- Date -->
+    <div class="date-line">
+        {{ date | default('Date') }}
+    </div>
+    
+    <!-- Recipient information -->
+    {% if recipient %}
+    <div class="recipient">
+        {% if recipient.name %}{{ recipient.name }}<br>{% endif %}
+        {% if recipient.title %}{{ recipient.title }}<br>{% endif %}
+        {% if recipient.organization %}{{ recipient.organization }}<br>{% endif %}
+        {% if recipient.address %}
+            {% for line in recipient.address %}
+            {{ line }}<br>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <!-- Subject line -->
+    {% if subject %}
+    <div style="margin-bottom: 16pt;">
+        <strong>RE: {{ subject }}</strong>
+    </div>
+    {% endif %}
+    
+    <!-- Salutation -->
+    <div class="salutation">
+        {{ salutation | default('Dear Community Member,') }}
+    </div>
+    
+    <!-- Letter content -->
+    <div class="letter-body">
+        {{ content | safe }}
+    </div>
+    
+    <!-- Closing -->
+    <div class="closing">
+        {{ closing | default('Sincerely,') }}
+    </div>
+    
+    <!-- Signature block -->
+    <div class="signature-block">
+        {% if signature %}
+        <div class="signature-line"></div>
+        <div class="signature-name">{{ signature.name | default('AI-Savvy Parents Team') }}</div>
+        <div class="signature-title">{{ signature.title | default('Community Support') }}</div>
+        {% else %}
+        <div class="signature-line"></div>
+        <div class="signature-name">AI-Savvy Parents Team</div>
+        <div class="signature-title">Community Support</div>
+        {% endif %}
+        
+        {% if signature and signature.contact %}
+        <div style="margin-top: 12pt; font-size: 10pt; color: #6B7280;">
+            {{ signature.contact }}
+        </div>
+        {% endif %}
+    </div>
+    
+    <!-- Footer for letters -->
+    {% if show_footer %}
+    <div style="margin-top: 48pt; padding-top: 16pt; border-top: 1px solid #E5E7EB; font-size: 9pt; color: #6B7280; text-align: center;">
+        <p>AI-Savvy Parents - Transforming AI anxiety into AI confidence for families everywhere</p>
+        <p>{{ brand.website }} | Join our community: {{ brand.community }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>

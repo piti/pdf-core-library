@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default('Business Proposal') }}</title>
+    <style>
+        {{ brand_css | safe }}
+        
+        /* Proposal-specific styling */
+        .proposal-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 30pt;
+            text-align: center;
+            margin-bottom: 30pt;
+            border-radius: 8pt;
+        }
+        
+        .proposal-header h1 {
+            font-size: 28pt;
+            margin: 0 0 12pt 0;
+        }
+        
+        .proposal-header .subtitle {
+            font-size: 16pt;
+            opacity: 0.9;
+            margin-bottom: 20pt;
+        }
+        
+        .proposal-header .client-info {
+            background-color: rgba(255,255,255,0.1);
+            padding: 12pt;
+            border-radius: 4pt;
+            font-size: 12pt;
+        }
+        
+        .executive-summary {
+            background-color: #EFF6FF;
+            border-left: 4px solid var(--color-primary);
+            padding: 20pt;
+            margin: 24pt 0;
+            border-radius: 4pt;
+            page-break-inside: avoid;
+        }
+        
+        .executive-summary h2 {
+            color: var(--color-primary);
+            margin: 0 0 12pt 0;
+            font-size: 18pt;
+        }
+        
+        .proposal-section {
+            margin: 24pt 0;
+            page-break-inside: avoid;
+        }
+        
+        .proposal-section h2 {
+            color: var(--color-primary);
+            font-size: 18pt;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 6pt;
+            margin: 0 0 16pt 0;
+        }
+        
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16pt 0;
+            background-color: white;
+        }
+        
+        .timeline-table th {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 10pt;
+            text-align: left;
+            font-size: 12pt;
+        }
+        
+        .timeline-table td {
+            padding: 10pt;
+            border-bottom: 1px solid #E5E7EB;
+            font-size: 11pt;
+        }
+        
+        .timeline-table tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16pt;
+            margin: 20pt 0;
+        }
+        
+        .deliverable-card {
+            background-color: #FAFBFC;
+            border: 1px solid var(--color-secondary);
+            padding: 16pt;
+            border-radius: 6pt;
+        }
+        
+        .deliverable-card h3 {
+            color: var(--color-primary);
+            font-size: 14pt;
+            margin: 0 0 8pt 0;
+        }
+        
+        .pricing-section {
+            background-color: #F0FDF4;
+            border: 2px solid var(--color-secondary);
+            padding: 24pt;
+            margin: 30pt 0;
+            border-radius: 8pt;
+        }
+        
+        .pricing-section h2 {
+            color: var(--color-secondary);
+            text-align: center;
+            margin: 0 0 20pt 0;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16pt 0;
+        }
+        
+        .pricing-table th {
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 12pt;
+            text-align: left;
+        }
+        
+        .pricing-table td {
+            padding: 12pt;
+            border-bottom: 1px solid #D1D5DB;
+        }
+        
+        .pricing-table .total-row {
+            background-color: var(--color-accent);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .terms-conditions {
+            background-color: #FEF3C7;
+            border-left: 4px solid var(--color-accent);
+            padding: 16pt;
+            margin: 24pt 0;
+            border-radius: 4pt;
+        }
+        
+        .terms-conditions h3 {
+            color: var(--color-accent);
+            margin: 0 0 12pt 0;
+        }
+        
+        .signature-section {
+            margin-top: 40pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40pt;
+        }
+        
+        .signature-block {
+            text-align: center;
+            padding-top: 20pt;
+            border-top: 1px solid var(--color-text);
+        }
+        
+        .signature-block .label {
+            font-size: 12pt;
+            color: var(--color-text-light);
+            margin-top: 8pt;
+        }
+        
+        @media print {
+            .proposal-section, .executive-summary, .pricing-section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Proposal Header -->
+    <div class="proposal-header">
+        {% if brand.logo %}
+        <img src="{{ brand.logo }}" style="height: 60pt; margin-bottom: 16pt;" alt="{{ brand.name }} Logo">
+        {% endif %}
+        <h1>{{ title | default('Business Proposal') }}</h1>
+        {% if subtitle %}
+        <div class="subtitle">{{ subtitle }}</div>
+        {% endif %}
+        
+        <div class="client-info">
+            <strong>Prepared for:</strong> {{ client_name | default('Valued Client') }}<br>
+            <strong>Date:</strong> {{ date | default('Today') }}<br>
+            <strong>Proposal ID:</strong> {{ proposal_id | default('PROP-001') }}
+        </div>
+    </div>
+
+    <!-- Executive Summary -->
+    {% if show_executive_summary %}
+    <div class="executive-summary">
+        <h2>Executive Summary</h2>
+        {{ executive_summary | default('This proposal outlines our recommended approach to meet your needs and achieve your objectives.') | safe }}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <div class="content">
+        {{ content | safe }}
+    </div>
+
+    <!-- Pricing Section -->
+    {% if show_pricing %}
+    <div class="pricing-section">
+        <h2>Investment & Pricing</h2>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Service/Item</th>
+                    <th style="text-align: right;">Quantity</th>
+                    <th style="text-align: right;">Rate</th>
+                    <th style="text-align: right;">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in pricing_items %}
+                <tr>
+                    <td>{{ item.description }}</td>
+                    <td style="text-align: right;">{{ item.quantity | default(1) }}</td>
+                    <td style="text-align: right;">${{ "%.2f" | format(item.rate | default(0)) }}</td>
+                    <td style="text-align: right;">${{ "%.2f" | format((item.quantity * item.rate) | default(0)) }}</td>
+                </tr>
+                {% endfor %}
+                <tr class="total-row">
+                    <td colspan="3"><strong>Total Investment</strong></td>
+                    <td style="text-align: right;"><strong>${{ "%.2f" | format(total_amount | default(0)) }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <!-- Terms & Conditions -->
+    <div class="terms-conditions">
+        <h3>Terms & Conditions</h3>
+        {{ terms_conditions | default('
+        <ul>
+            <li>This proposal is valid for 30 days from the date above</li>
+            <li>50% deposit required to begin work</li>
+            <li>Payment terms: Net 30 days</li>
+            <li>Additional work outside this scope will be quoted separately</li>
+        </ul>
+        ') | safe }}
+    </div>
+
+    <!-- Signature Section -->
+    <div class="signature-section">
+        <div class="signature-block">
+            <div class="label">Client Signature</div>
+        </div>
+        <div class="signature-block">
+            <div class="label">{{ brand.name }} Representative</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top: 40pt; text-align: center; font-size: 10pt; color: var(--color-text-light);">
+        <p>{{ brand.name }} • {{ brand.email }} • {{ brand.phone }}</p>
+        {% if brand.website %}
+        <p>{{ brand.website }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
